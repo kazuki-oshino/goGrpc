@@ -1,0 +1,24 @@
+syntax = "proto3";
+package exgogrpc;
+
+option go_package = "./cmd/go_grpc";
+
+service ExGoGrpc {
+
+  rpc HelloGrpc (HelloGrpcRequest) returns (HelloGrpcResponse) {}
+}
+
+enum Greet {
+  HELLO = 0;
+  WHATS_UP = 1;
+}
+
+message HelloGrpcRequest {
+  string name = 1;
+  repeated Greet greets = 2;
+}
+
+message HelloGrpcResponse {
+  string reply = 1;
+  string reply2 = 2;
+}
